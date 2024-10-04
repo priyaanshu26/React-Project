@@ -177,3 +177,7 @@ code {
 .data{
   display: flex;
 }
+
+.input{
+  color: #00ffff;
+}

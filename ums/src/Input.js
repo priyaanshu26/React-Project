@@ -4,11 +4,11 @@ function Input(){
     return(
         <div>
 
-<form class="form-horizontal d-grid gap-2 col-10 mx-auto">
+<form class="form-horizontal d-grid gap-2 col-10 mx-auto input">
 <fieldset>
 
 {/* <!-- Form Name --> */}
-<legend>Add Card</legend>
+<legend class="fw-bolder" >Add Card</legend>
 
 {/* <!-- Text input--> */}
 <div class="form-group m-2">
