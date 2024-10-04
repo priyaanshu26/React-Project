@@ -11,7 +11,7 @@ import Wishlist from './Wishlist';
 import Community from './Community';
 import News from './News';
 import Cart from './Cart';
-
+import Input from './Input';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -27,6 +27,8 @@ root.render(
         <Route path="/cart" element={<Cart />} />
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="/input" element={<Input />} />
+
 
       </Route>
     </Routes>
