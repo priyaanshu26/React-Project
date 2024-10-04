@@ -2,6 +2,7 @@ import poster from "./images/poster.png"
 import plus from "./images/plus.png"
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
+
 function Home() {
     const [data, setData] = useState([]);
 
@@ -15,8 +16,8 @@ function Home() {
 
     const addToCart = (id) => {
         fetch(`http://localhost:4000/adminlist/add/${id}`, { method: "POST" })
-        .then(res => res.json())
-        .then((res) => {})
+            .then(res => res.json())
+            .then((res) => { })
     }
 
     const game = data.map((game, index) => {
@@ -27,10 +28,10 @@ function Home() {
                     <h5 className="card-title">{game.title}</h5>
                     <p className="card-text">{game.description}</p>
                     <p className="btn btn-outline-info p-2 m-2">$ {game.price}</p>
-                    <a 
-                        type="button" 
-                        className="btn btn-success p-2 m-2" 
-                        onClick = { () => { addToCart(game._id) } }
+                    <a
+                        type="button"
+                        className="btn btn-success p-2 m-2"
+                        onClick={() => { addToCart(game._id) }}
                     >Add to cart</a>
                 </div>
             </div>
@@ -49,15 +50,21 @@ function Home() {
                     <div className="col-9 d-flex flex-wrap">
                         {game}
 
-                        <button 
+                        <button
                             className="card col-md-4 m-2"
-                            onClick={ () => {console.log('add')} }
-                        >   
-                            <img 
-                                src={plus} 
-                                className="card-img-top"
-                                alt="..."
-                            /> 
+                            onClick={() => {
+                                console.log('add')
+
+
+                            }}
+                        >
+                            <Link to="/input">
+                                <img
+                                    src={plus}
+                                    className="card-img-top"
+                                    alt="..."
+                                />
+                            </Link>
                         </button>
 
                     </div>
@@ -69,3 +76,4 @@ function Home() {
 }
 
 export default Home;
+

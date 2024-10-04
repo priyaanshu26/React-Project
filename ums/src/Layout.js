@@ -25,7 +25,7 @@ function Layout() {
                 </ul>
             </div>
             <div className="content">
-                <Outlet class=" "/>
+                <Outlet />
             </div>
         </div>
     )
