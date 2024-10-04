@@ -12,7 +12,16 @@ function Cart(){
         })
     } , []);
 
+    const deleteIndex = (index) => {
+        fetch(`http://localhost:4000/adminlist/delete/${index}`, {method: 'DELETE'})
+        .then(res => res.json())
+        .then((res) => {
+            setCart(res);
+        })
+    }
+
     const list = cart.map((card, index) => {
+        // console.log(index);
         return (
             <div key={index} className="card col-md-4 m-2">
                 <img src={card.image} className="card-img-top" alt="..." />
@@ -20,7 +29,11 @@ function Cart(){
                     <h5 className="card-title">{card.title}</h5>
                     <p className="card-text">{card.description}</p>
                     <p className="btn btn-outline-info p-2 m-2">$ {card.price}</p>
-                    <a type="button" className="btn btn-danger p-2 m-2" >Delete</a>
+                    <a 
+                        className="btn btn-danger p-2 m-2"
+                        type="button"
+                        onClick={ () => { deleteIndex(index) } }
+                    > Delete </a>
                 </div>
             </div>
         );
