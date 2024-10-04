@@ -155,11 +155,14 @@ code {
  transform: skewX(-25deg) translateX(-15px);   
 }
 
+body{
+  background-color: #1b293a;
+  overflow-x: hidden;
+}
 
 /*Content*/
 .main{
-  background-color: #1b293a;
-  height: 500vh;
+  height: 100vh;
 }
 
 .poster{
