@@ -56,6 +56,22 @@ mongoose.connect('mongodb+srv://priyanshu171561:Ti8qktNzN85cYfIr@priyanshu.tdnpa
         res.send(ans);
     });
 
+    app.delete('/adminlist/delete/:index', async (req, res) => {
+        const admin = await Admin.findOne({name: 'admin'});
+        admin.cart.splice(req.params.index, 1);
+        const saved = await admin.save();
+
+        const cart = await Promise.all(saved.cart.map(async (id) => {
+            const card = await Card.findOne({ _id: id });
+            if (card) return card;
+            return 'Not Found';
+        }));
+
+        res.send(cart);
+    });
+
+
+
     app.listen(port, () => {
         console.log(`Server Started at port : ${port}`);
     });

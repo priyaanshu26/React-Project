@@ -2,59 +2,66 @@
 
 function Input(){
 
-    
+    const submit = (e) => {
+       
+    }
 
     return(
         <div>
 
-<form class="form-horizontal d-grid gap-2 col-10 mx-auto input">
-<fieldset>
+        <form className="form-horizontal d-grid gap-2 col-10 mx-auto input">
+        <fieldset>
 
-{/* <!-- Form Name --> */}
-<legend class="fw-bolder" >Add Card</legend>
+        {/* <!-- Form Name --> */}
+        <legend className="fw-bolder" >Add Card</legend>
 
           {/* <!-- Text input--> */}
-          <div class="form-group m-2">
-            <label class="col-md-4 control-label m-2" for="textinput">Image source</label>  
-            <div class="col-md-4">
-            <input id="textinput" name="textinput" type="text" placeholder="enter link to image" class="form-control input-md m-2"/>
+          <div className="form-group m-2">
+            <label className="col-md-4 control-label m-2">Image source</label>  
+            <div className="col-md-4">
+            <input id="textinput" name="textinput" type="text" placeholder="enter link to image" className="form-control input-md m-2"/>
               
             </div>
           </div>
 
           {/* <!-- Text input--> */}
-          <div class="form-group m-2">
-            <label class="col-md-4 control-label m-2" for="textinput">Name</label>  
-            <div class="col-md-4">
-            <input id="textinput" name="textinput" type="text" placeholder="enter game name" class="form-control input-md m-2"/>
+          <div className="form-group m-2">
+            <label className="col-md-4 control-label m-2">Name</label>  
+            <div className="col-md-4">
+            <input id="textinput" name="textinput" type="text" placeholder="enter game name" className="form-control input-md m-2"/>
               
             </div>
           </div>
 
           {/* <!-- Text input--> */}
-          <div class="form-group m-2">
-            <label class="col-md-4 control-label m-2" for="textinput">Description</label>  
-            <div class="col-md-4">
-            <input id="textinput" name="textinput" type="text" placeholder="enter description" class="form-control input-md m-2"/>
+          <div className="form-group m-2">
+            <label className="col-md-4 control-label m-2">Description</label>  
+            <div className="col-md-4">
+            <input id="textinput" name="textinput" type="text" placeholder="enter description" className="form-control input-md m-2"/>
               
             </div>
           </div>
 
           {/* <!-- Text input--> */}
-          <div class="form-group m-2">
-            <label class="col-md-4 control-label" for="textinput">Price</label>  
-            <div class="col-md-4">
-            <input id="textinput" name="textinput" type="text" placeholder="enter price" class="form-control input-md m-2"/>
+          <div className="form-group m-2">
+            <label className="col-md-4 control-label">Price</label>  
+            <div className="col-md-4">
+            <input id="textinput" name="textinput" type="text" placeholder="enter price" className="form-control input-md m-2"/>
               
             </div>
           </div>
 
           {/* <!-- Button (Double) --> */}
-          <div class="form-group m-2">
-            <label class="col-md-4 control-label" for="submit"></label>
-            <div class="col-md-8">
-              <button id="submit" name="submit" class="btn btn-info m-2">Submit</button>
-              <button id="cancel" name="cancel" class="btn btn-danger m-2">Cancel</button>
+          <div className="form-group m-2">
+            <label className="col-md-4 control-label"></label>
+            <div className="col-md-8">
+              <button 
+                className="btn btn-info m-2"
+                name="submit"
+                id="submit" 
+                onClick={ e => submit(e) }
+              > Submit </button>
+              <button id="cancel" name="cancel" className="btn btn-danger m-2">Cancel</button>
             </div>
           </div>
 
