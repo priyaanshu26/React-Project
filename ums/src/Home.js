@@ -13,15 +13,25 @@ function Home() {
             .then(res => setData(res));
     }, []);
 
-    const game = data.map((game) => {
+    const addToCart = (id) => {
+        fetch(`http://localhost:4000/adminlist/add/${id}`, { method: "POST" })
+        .then(res => res.json())
+        .then((res) => {})
+    }
+
+    const game = data.map((game, index) => {
         return (
-            <div class="card col-md-4 m-2">
-                <img src={game.image} class="card-img-top" alt="..." />
-                <div class="card-body border-info">
-                    <h5 class="card-title">{game.title}</h5>
-                    <p class="card-text">{game.description}</p>
-                    <p class="btn btn-outline-info p-2 m-2">$ {game.price}</p>
-                    <a type="button" class="btn btn-success p-2 m-2" >Add to cart</a>
+            <div key={index} className="card col-md-4 m-2">
+                <img src={game.image} className="card-img-top" alt="..." />
+                <div className="card-body border-info">
+                    <h5 className="card-title">{game.title}</h5>
+                    <p className="card-text">{game.description}</p>
+                    <p className="btn btn-outline-info p-2 m-2">$ {game.price}</p>
+                    <a 
+                        type="button" 
+                        className="btn btn-success p-2 m-2" 
+                        onClick = { () => { addToCart(game._id) } }
+                    >Add to cart</a>
                 </div>
             </div>
         );
@@ -29,17 +39,27 @@ function Home() {
 
 
     return (
-        <div class="home">
-            <img src={poster} alt="Poster" class="poster" />
-            <div class="game">
-                <div class="row">
-                    <div class="col-3">
+        <div className="home">
+            <img src={poster} alt="Poster" className="poster" />
+            <div className="game">
+                <div className="row">
+                    <div className="col-3">
                         <h3>Navigation panel</h3>
                     </div>
-                    <div class="col-9 d-flex flex-wrap">
+                    <div className="col-9 d-flex flex-wrap">
                         {game}
-                        <button class="card col-md-4 m-2"> <img src={plus} class="card-img-top" alt="..." />
+
+                        <button 
+                            className="card col-md-4 m-2"
+                            onClick={ () => {console.log('add')} }
+                        >   
+                            <img 
+                                src={plus} 
+                                className="card-img-top"
+                                alt="..."
+                            /> 
                         </button>
+
                     </div>
 
                 </div>

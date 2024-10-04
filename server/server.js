@@ -28,17 +28,6 @@ mongoose.connect('mongodb+srv://priyanshu171561:Ti8qktNzN85cYfIr@priyanshu.tdnpa
         res.send(card);
     })
 
-    app.get('/adminlist', async(req, res) => {
-        const admin = await Admin.find();
-        const list = admin.map( async(obj) => {
-            // let card = await Card.find({
-            //     _id : obj.card
-            //     } );
-            return JSON.text(obj.card);
-        } );
-        res.send(list);
-    });
-
     app.post('/card/add', async(req, res) => {
         const card = new Card({ 
             ...req.body
@@ -47,9 +36,23 @@ mongoose.connect('mongodb+srv://priyanshu171561:Ti8qktNzN85cYfIr@priyanshu.tdnpa
         res.send(ans);
     });
 
+
+
+    app.get('/adminlist', async(req, res) => {
+        const admin = await Admin.findOne({name: 'admin'});
+        const cart = await Promise.all(admin.cart.map(async (id) => {
+            const card = await Card.findOne({ _id: id });
+            if (card) return card;
+            return 'Not Found';
+        }));
+        res.send(cart);
+    });
+
+
     app.post('/adminlist/add/:id', async(req, res) => {
-        const card = new Admin({card: req.params.id});
-        const ans = await card.save();
+        const admin = await Admin.findOne({name: 'admin'});
+        admin.cart.push(req.params.id);
+        const ans = await admin.save();
         res.send(ans);
     });
 

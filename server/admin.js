@@ -1,7 +1,8 @@
 const mongo = require('mongoose');
 
 const adminSchema = new mongo.Schema({
-    card: String
+    name: String,
+    cart: []
 });
 
 module.exports = mongo.model('Admin', adminSchema);
