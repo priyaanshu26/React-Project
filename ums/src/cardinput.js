@@ -38,11 +38,10 @@ export default function FormDialog() {
           },
         }}
       >
-        <DialogTitle>Subscribe</DialogTitle>
+        <DialogTitle>Add Card</DialogTitle>
         <DialogContent>
           <DialogContentText>
-            To subscribe to this website, please enter your email address here. We
-            will send updates occasionally.
+            To add card to this website, please enter the details here.
           </DialogContentText>
           <TextField
             autoFocus
@@ -58,7 +57,7 @@ export default function FormDialog() {
         </DialogContent>
         <DialogActions>
           <Button onClick={handleClose}>Cancel</Button>
-          <Button type="submit">Subscribe</Button>
+          <Button type="submit">Add</Button>
         </DialogActions>
       </Dialog>
     </React.Fragment>
