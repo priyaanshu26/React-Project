@@ -20,6 +20,7 @@ function Cart(){
                     <h5 className="card-title">{card.title}</h5>
                     <p className="card-text">{card.description}</p>
                     <p className="btn btn-outline-info p-2 m-2">$ {card.price}</p>
+                    <a type="button" className="btn btn-danger p-2 m-2" >Delete</a>
                 </div>
             </div>
         );
