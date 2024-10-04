@@ -2,6 +2,7 @@ import poster from "./images/poster.png"
 import plus from "./images/plus.png"
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
+
 function Home() {
     const [data, setData] = useState([]);
 
