@@ -52,9 +52,6 @@ function Home() {
 
                         <button
                             className="card col-md-4 m-2"
-                            onClick={() => {
-                                console.log('add')
-                            }}
                         >
                             <Link to="/input">
                                 <img
