@@ -22,7 +22,7 @@ function Home() {
 
     const game = data.map((game, index) => {
         return (
-            <div key={index} className="card col-md-4 m-2">
+            <div key={index} className="card col-md-4 m-2 text-bg-dark border-info">
                 <img src={game.image} className="card-img-top" alt="..." />
                 <div className="card-body border-info">
                     <h5 className="card-title">{game.title}</h5>
@@ -51,7 +51,7 @@ function Home() {
                         {game}
 
                         <button
-                            className="card col-md-4 m-2"
+                            className="card col-md-4 m-2 text-bg-dark border-info"
                             onClick={() => {
                                 console.log('add')
                             }}
