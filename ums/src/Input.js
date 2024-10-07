@@ -55,7 +55,10 @@ function Input(){
 
       fetch(`http://localhost:4000/card/add`,{
         method: 'POST',
-        body: JSON.stringify(data),
+        body: JSON.stringify({
+          ...data, 
+          price: parseInt(data.price)
+        }),
         headers: {
           'Content-Type': 'application/json'
         }

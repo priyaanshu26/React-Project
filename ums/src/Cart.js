@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 
 function Cart() {
-
+    var total=0;
     const [cart, setCart] = useState([]);
 
     useEffect(() => {
@@ -22,6 +22,7 @@ function Cart() {
 
     const list = cart.map((card, index) => {
         // console.log(index);
+            total += card.price;
         return (
 
             <div key={index} class="card mb-3 col-8 border-info text-bg-dark">
@@ -50,8 +51,8 @@ function Cart() {
         <>
             <div className='pt-3 container d-flex flex-wrap justify-content-center'>
                 {list}
-                <p className="text-bg-dark border-info m-2 col-8 d-flex justify-content-center">
-                    Total Price : 
+                <p className="text-bg-dark border-info m-2 p-2 col-8 d-flex justify-content-center word-spacing-2">
+                    Total Price : $ {total}
                 </p>
             </div>
             <hr />
