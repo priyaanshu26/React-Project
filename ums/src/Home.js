@@ -2,11 +2,12 @@ import poster from "./images/poster.png"
 import plus from "./images/plus.png"
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
+import { apiBaseUrl } from "./apiBaseUrl";
 
 function Home() {
     const [data, setData] = useState([]);
 
-    const apiUrl = "http://localhost:4000/cards";
+    const apiUrl = `${apiBaseUrl}/cards`;
 
     useEffect(() => {
         fetch(apiUrl, { method: "GET" })
@@ -15,7 +16,7 @@ function Home() {
     }, []);
 
     const addToCart = (id) => {
-        fetch(`http://localhost:4000/adminlist/add/${id}`, { method: "POST" })
+        fetch(`${apiBaseUrl}/adminlist/add/${id}`, { method: "POST" })
             .then(res => res.json())
             .then((res) => { })
     }

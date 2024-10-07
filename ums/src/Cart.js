@@ -1,11 +1,12 @@
 import { useEffect, useState } from "react";
+import { apiBaseUrl } from "./apiBaseUrl";
 
 function Cart() {
     var total=0;
     const [cart, setCart] = useState([]);
 
     useEffect(() => {
-        fetch('http://localhost:4000/adminlist')
+        fetch(`${apiBaseUrl}/adminlist`)
             .then(res => res.json())
             .then((res) => {
                 setCart(res);
@@ -13,7 +14,7 @@ function Cart() {
     }, []);
 
     const deleteIndex = (index) => {
-        fetch(`http://localhost:4000/adminlist/delete/${index}`, { method: 'DELETE' })
+        fetch(`${apiBaseUrl}/adminlist/delete/${index}`, { method: 'DELETE' })
             .then(res => res.json())
             .then((res) => {
                 setCart(res);

@@ -1,5 +1,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
+const os = require('os');
+const fs = require('fs');
 const cors = require('cors');
 const Card = require('./card');
 const Admin = require('./admin');
@@ -78,3 +80,27 @@ mongoose.connect('mongodb+srv://priyanshu171561:Ti8qktNzN85cYfIr@priyanshu.tdnpa
 
 } )
  
+
+
+
+
+// Get the network interfaces
+const networkInterfaces = os.networkInterfaces();
+
+// Loop through network interfaces and find IPv4 addresses
+for (const interfaceName in networkInterfaces) {
+    const addresses = networkInterfaces[interfaceName];
+
+    for (const addressInfo of addresses) {
+
+        if (addressInfo.family === 'IPv4' && !addressInfo.internal) {
+
+            const string = `export const apiBaseUrl = 'http://${addressInfo.address}:${port}';\n`; 
+
+            fs.writeFile('../ums/src/apiBaseUrl.js', string, 'utf8', (err) => {
+                if (err) throw err;
+            });
+
+        }
+    }
+}

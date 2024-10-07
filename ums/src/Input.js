@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { apiBaseUrl } from "./apiBaseUrl";
 
 function Input(){
 
@@ -53,7 +54,7 @@ function Input(){
       
       // console.log(data, dataValidation);
 
-      fetch(`http://localhost:4000/card/add`,{
+      fetch(`${apiBaseUrl}/card/add`,{
         method: 'POST',
         body: JSON.stringify({
           ...data, 
